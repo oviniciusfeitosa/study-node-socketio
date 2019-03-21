@@ -29,8 +29,8 @@ io.on('connection', function (socket) {
     //     console.log(`users active ${clients.length}`)
     // });
 
-    socket.on('chat message', function(msg){
-        console.log('message: ' + msg);
+    socket.on('chat message', function(object){
+        console.log(`[${object.clientId}]: ` + object.message);
     });
 });
 
