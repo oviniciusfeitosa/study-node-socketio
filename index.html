@@ -63,6 +63,10 @@
             $('#m').val('');
             return false;
         });
+
+        socket.on('general chat', (data) => {
+            $('#messages').append($('<li>').text(`[${data.clientId}]: ` + data.message))
+        });
     });
 </script>
 

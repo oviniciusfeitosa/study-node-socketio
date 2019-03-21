@@ -29,10 +29,14 @@ io.on('connection', function (socket) {
     //     console.log(`users active ${clients.length}`)
     // });
 
-    socket.on('chat message', function(object){
-        console.log(`[${object.clientId}]: ` + object.message);
+    socket.on('chat message', function(data){
+        console.log(`[${data.clientId}]: ` + data.message);
+
+        io.emit('general chat', data);
     });
 });
+
+
 
 http.listen(3000, function () {
     console.log('listening on *:3000');
