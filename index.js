@@ -29,9 +29,9 @@ io.on('connection', function (socket) {
     //     console.log(`users active ${clients.length}`)
     // });
 
-    // socket.on('chat message', function(msg){
-    //     console.log('message: ' + msg);
-    // });
+    socket.on('chat message', function(msg){
+        console.log('message: ' + msg);
+    });
 });
 
 http.listen(3000, function () {
