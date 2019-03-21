@@ -2,19 +2,29 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-app.get('/', function(req, res){
+const clients = [];
+
+app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
-io.on('connection', function(socket){
+io.on('connection', function (socket) {
     // console.log(socket.client.id);
-    console.log('a user connected');
     console.log('an user connected');
-    socket.on('disconnect', function(){
+    clients.push({clientId: socket.client.id})
+
+    socket.on('disconnect', function () {
+        const index = clients.findIndex(client => client.clientId === socket.client.id);
+        clients.splice(index, 1);
         console.log('user disconnected');
+
+    });
+
+    socket.on('active_users', () => {
+        console.log(`users active ${clients.length}`)
     });
 });
 
-http.listen(3000, function(){
+http.listen(3000, function () {
     console.log('listening on *:3000');
 });
