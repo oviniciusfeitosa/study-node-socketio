@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/vinnyfs89/study-node-socketio#readme",
   "dependencies": {
-    "eslint": "^5.15.3",
     "eslint-config-airbnb": "^17.1.0",
     "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.3"
   }
 }
