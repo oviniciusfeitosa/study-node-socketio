@@ -1,0 +1,22 @@
+{
+  "name": "study-node-socketio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinnyfs89/study-node-socketio.git"
+  },
+  "author": "Vinicius Feitosa da Silva <viniciusfesil@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vinnyfs89/study-node-socketio/issues"
+  },
+  "homepage": "https://github.com/vinnyfs89/study-node-socketio#readme",
+  "dependencies": {
+    "socket.io": "^2.2.0"
+  }
+}
