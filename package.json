@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/vinnyfs89/study-node-socketio#readme",
   "dependencies": {
+    "eslint": "^5.15.3",
     "socket.io": "^2.2.0"
   }
 }
