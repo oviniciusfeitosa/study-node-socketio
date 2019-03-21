@@ -12,27 +12,24 @@ io.on('connection', function (socket) {
     // console.log(socket.client.id);
     console.log('an user connected');
     clients.push({clientId: socket.client.id})
-    console.log(`------`)
-    console.log(`users active ${clients.length}`)
-    console.log(`------`)
+
+    io.emit('connectedUsers', clients.length);
 
     socket.on('disconnect', function () {
         const index = clients.findIndex(client => client.clientId === socket.client.id);
         clients.splice(index, 1);
         console.log('user disconnected');
-        console.log(`------`)
-        console.log(`users active ${clients.length}`)
-        console.log(`------`)
+        io.emit('connectedUsers', clients.length);
     });
 
     // socket.on('active_users', () => {
     //     console.log(`users active ${clients.length}`)
     // });
 
-    socket.on('chat message', function(data){
+    socket.on('chatMessage', function(data){
         console.log(`[${data.clientId}]: ` + data.message);
 
-        io.emit('general chat', data);
+        io.emit('generalChat', data);
     });
 });
 
