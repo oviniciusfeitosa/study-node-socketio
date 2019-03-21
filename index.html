@@ -73,6 +73,13 @@
         socket.on('connectedUsers', (data) => {
             $('#connectedUsers').html(data);
         });
+
+        socket.on('clientConnected', (data) => {
+             $('#messages').append($('<li>').text(`** ClientId ${data.clientId} connected ** `))
+        });
+        socket.on('clientDisconnected', (data) => {
+             $('#messages').append($('<li>').text(`** ClientId ${data.clientId} disconnected ** `))
+        });
     });
 </script>
 
