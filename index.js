@@ -17,7 +17,7 @@ io.on('connection', function (socket) {
     io.emit('connectedUsers', clients.length);
     io.emit('clientConnected', { clientId: socket.client.id });
 
-    socket.on('disconnect', () => {}
+    socket.on('disconnect', () => {
         const index = clients.findIndex(client => client.clientId === socket.client.id);
         clients.splice(index, 1);
         console.log('user disconnected');
